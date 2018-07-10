@@ -1,0 +1,78 @@
+File content: testplan.txt
+
+abcdefghijkl
+
+
+Server side:    ./netfileserver
+
+Generating Parameters
+Using Parameters AF_INET, INADDR_ANY, 64064
+Successfully set parameters.
+Attempting to find socket with settings AF_INET, SOCK_STREAM, 0.
+Successfully found socket, using fd of 3.
+Attempting to bind.
+Successfully bound to socket.
+Attempting to listen.
+Success! Now listening.
+Waiting for new connection.
+Opening filename testplan.txt of length 12 with flags 2 and mode 0
+Success! Now connected.
+Waiting for new connection.
+Recieved a read request of 50 on file descriptor 6
+Mode is 0
+Success! Now connected.
+Waiting for new connection.
+Recieved a write request of 50 on file descriptor 6
+Success! Now connected.
+Waiting for new connection.
+Closing fd 6
+Success! Now connected.
+Waiting for new connection.
+(--------------------------New client--------------------------------)
+Opening filename testplan.txt of length 12 with flags 0 and mode 0
+Success! Now connected.
+Waiting for new connection.
+Recieved a read request of 50 on file descriptor 6
+Mode is 0
+Success! Now connected.
+Waiting for new connection.
+Recieved a write request of 50 on file descriptor 6
+[ERROR]: Error writing.
+Success! Now connected.
+Waiting for new connection.
+Closing fd 6
+
+
+
+
+Client side:    ./client man.cs testplan.txt B u 
+(Read and 
+write request)
+
+Generating Parameters
+Using Parameters AF_INET, INADDR_ANY, 64064
+Successfully set parameters.
+Got file descriptor of -6 from netopen
+Number of bytes read: 50, and read of Server side: ./netfileserver
+
+Generating Parameter
+Number of bytes written: 50, and wrote Server side: ./netfileserver
+
+Generating Parameter
+Client operations successful
+
+
+Client side:    ./client man.cs testplan.txt R u 
+(Read request)
+
+Generating Parameters
+Using Parameters AF_INET, INADDR_ANY, 64064
+Successfully set parameters.
+Got file descriptor of -6 from netopen
+Number of bytes read: 50, and read of Server side: ./netfileserver
+
+Generating Parameter
+Number of bytes written: -1, and wrote Server side: ./netfileserver
+
+Generating Parameter
+Client operations successful
